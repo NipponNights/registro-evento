@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nippon Nights - Registro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffb0b1, #ff9966);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Fondo del logo */
+    body::before {
+      content: "";
+      background-image: url(/static/fiesta.jpeg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.15;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      background-color: #88beeb;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #000000;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.5rem 0 0 0;
+      color: #000000;
+      font-size: 1rem;
+    }
+
+    main.container {
+      background-image: url(/static/logo.jpeg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 300px;
+      background-color: rgb(241, 233, 216);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      margin: 2rem auto;
+      flex-grow: 1;
+      
+    }
+
+    main h2 {
+      color: #87c9ff;
+      font-size: 1.5rem;
+      
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff5e62;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #ff3b3f;
+    }
+
+    .message {
+      margin-top: 1rem;
+      color: green;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #88beeb;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #444;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 📱 Estilos para pantallas pequeñas */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 0.9rem;
+      }
+
+      main h2 {
+        font-size: 1.2rem;
+      }
+
+      main.container {
+        background-size: 200px;
+        padding: 1.5rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nippon Nights</h1>
+    <p>Eventos de anime por todo Madrid!</p>
+  </header>
+
+  <main class="container">
+    <h2>¡Deja tu email para recibir informacion sobre proximos eventos!</h2>
+    <form action="/register" method="POST">
+      <input type="email" name="email" placeholder="Tu email" required>
+      <button type="submit">Registrarse</button>
+    </form>
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nippon Nights. Todos los derechos reservados.</p>
+    <p>Contacto: nipponnights0@gmail.com</p>
+  </footer>
+</body>
+</html>
